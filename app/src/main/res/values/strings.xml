@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CovidCasesMVVM</string>
+    <string name="error_msg">Oops, something wen wrong</string>
+    <string name="country_label">Country: </string>
+    <string name="total_cases_label">Total Cases: </string>
+    <string name="total_death_label">Total Death: </string>
+    <string name="total_Tests_label">Total Tests: </string>
+    <string name="total_population_label">Population: </string>
+    <string name="country_flag">Country flag</string>
+    <string name="button_label">Fetch country List</string>
+</resources>
