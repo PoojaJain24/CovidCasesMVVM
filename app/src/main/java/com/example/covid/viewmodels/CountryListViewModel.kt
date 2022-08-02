@@ -12,13 +12,13 @@ class CountryListViewModel() : ViewModel() {
     val countryList = MutableLiveData<List<MyCountry>>()
     val errorMessage = MutableLiveData<String>()
 
-    fun getCountryListObserver() {
+    fun getCountryList() {
         val countryService = APIClient.buildService(CountryService::class.java)
         val responseObservable = countryService.getAffectedCountryList()
         responseObservable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({response->getCountryList(response)},{error->errorMessage.postValue(error.message)})
+            .subscribe({response-> getCountryList(response) },{ error->errorMessage.postValue(error.message)})
     }
 
     private fun getCountryList(response: List<MyCountry>) {

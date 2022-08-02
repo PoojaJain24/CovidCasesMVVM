@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CovidCasesMVVM</string>
+    <string name="app_name">Covid Cases Analysis</string>
     <string name="error_msg">Oops, something wen wrong</string>
     <string name="country_label">Country: </string>
     <string name="total_cases_label">Total Cases: </string>

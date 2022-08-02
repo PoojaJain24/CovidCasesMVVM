@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covid.model.MyCountry
 import com.example.covid.viewmodels.CountryListViewModel
@@ -15,11 +15,12 @@ class CountryListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var countryAdapter: CountriesAdapter
     private lateinit var countryListViewModel: CountryListViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        countryListViewModel = ViewModelProvider(this).get(CountryListViewModel::class.java)
+        countryListViewModel = ViewModelProviders.of(this).get(CountryListViewModel::class.java)
         setupViews()
     }
 
@@ -49,7 +50,7 @@ class CountryListActivity : AppCompatActivity() {
         countryListViewModel.errorMessage.observe(this, Observer {
 
         })
-        countryListViewModel.getCountryListObserver()
+        countryListViewModel.getCountryList()
     }
 
     private fun onCountryItemClicked(country: MyCountry) {
