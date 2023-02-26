@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 class CountryListViewModel : ViewModel() {
     val countryList = MutableLiveData<List<MyCountry>>()
     val errorMessage = MutableLiveData<String>()
-    var handleJob: Job? = null
+    private var handleJob: Job? = null
 
     private val exceptionHandler =
         CoroutineExceptionHandler { _, throwable ->

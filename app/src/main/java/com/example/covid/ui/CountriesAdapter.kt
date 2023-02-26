@@ -1,13 +1,11 @@
 package com.example.covid.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covid.model.MyCountry
-import com.example.covidcasesmvvm.R
 import com.example.covidcasesmvvm.databinding.CountryRowItemBinding
 import com.squareup.picasso.Picasso
 
@@ -32,7 +30,7 @@ class CountriesAdapter(private val clickListener: (MyCountry) -> Unit
     }
     class ViewHolder(binding: CountryRowItemBinding, clickAtPosition: (Int) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
-        var imageViewCountryFlag: ImageView = binding.ivCountryFlag
+        private var imageViewCountryFlag: ImageView = binding.ivCountryFlag
         var textViewCountryName: TextView = binding.tvCountryName
 
         init {

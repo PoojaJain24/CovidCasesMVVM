@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covid.model.MyCountry
@@ -28,7 +27,7 @@ class CountryListActivity : AppCompatActivity() {
         binding.countryRecycler.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@CountryListActivity)
-            countryAdapter = CountriesAdapter() {
+            countryAdapter = CountriesAdapter {
                 onCountryItemClicked(it)
             }
             adapter = countryAdapter
@@ -41,15 +40,15 @@ class CountryListActivity : AppCompatActivity() {
 
     private fun showCountryList() {
         binding.fetchCountryButton.isVisible = false
-        countryListViewModel.countryList.observe(this, Observer {
+        countryListViewModel.countryList.observe(this) {
             hideProgress()
             countryAdapter.countryList = it as ArrayList<MyCountry>
             binding.countryRecycler.isVisible = true
             countryAdapter.notifyDataSetChanged()
-        })
-        countryListViewModel.errorMessage.observe(this, Observer {
+        }
+        countryListViewModel.errorMessage.observe(this) {
 
-        })
+        }
         countryListViewModel.getCountryList()
     }
 
